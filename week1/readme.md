@@ -1,4 +1,4 @@
-# COMP0005 Note for Week 1
+# COMP0005 Note for Week 1 Lecture
 
 Zhouzhou Zhang, Jan 14
 
@@ -46,3 +46,35 @@ If we union two objects just simply reassign value for either component's object
         id = []
         for i in range
     }
+
+## 3.Analysis
+
+Whenever we design an algorithm, we should also analyze its performance(speed and memory used). See an example of Bubble Sort
+
+    def bs(ls):
+        for i in range(len(ls) - 1):
+            for j in range(len(ls) - i - 1):
+                if ls[j] > ls[j+1]:
+                    swap(i,j)
+
+For this algorithm, the complexity should be O(n^2), which means every time we increase the length of the list, the time cost by this algorithm increases exponentially. The total running time depends on the sum of cost and frequency of all operations where:
+
+-   Cost of operation depends on machine and language. (time for an instruction)
+-   Frequency depends on algorithm itself. (numbers of instructions)
+
+## Math Models
+
+Let's see the frequency inside one algorithm visually. Frequency focus on the numbers of instructions we have performed inside the algorithm. We can make an Instruction-Frequency table like this.
+
+![alt text](image-3.png)
+
+But this is too much complex. We can use simplifications to simplify the model. Instructions that is not costly can be ignored and we only focus on the most costly and frequently executed instructions(operations). Another thing is that we can ignore lower order terms.
+
+    O(N^2 + N) -> O(N^2)
+    O(N+2) -> O(N)
+    O((1/2) * (N/N-1)) -> O((1/2)*(N^2))
+
+
+
+
+
