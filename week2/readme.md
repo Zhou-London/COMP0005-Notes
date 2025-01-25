@@ -16,3 +16,15 @@ List is an ADT where we only care whether the elements are in a sequence, or may
     head()
     tail()
 
+## Queue
+
+First in First out
+
+## Stack
+
+First in Last out
+
+## So...
+
+Yeah that's it. There is nothing worth learning in week2. I know
+many of you have learned this thing before.
