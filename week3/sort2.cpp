@@ -20,23 +20,31 @@ private:
     }
 
     void merge(int low, int mid, int high) {
-        vector<int> res;
         int i = low;
         int j = mid;
+        int k = low;
+        vector<int> tmp = v1;
 
-        while (i < mid && j < high) {
-            if (v1[i] <= v1[j]) {
-                res.push_back(v1[i++]);
+        while(i < mid && j < high){
+            if(tmp[i] < tmp[j]){
+                v1[k] = tmp[i];
+                i++;
             } else {
-                res.push_back(v1[j++]);
+                v1[k] = tmp[j];
+                j++;
             }
+            k++;
         }
 
-        while (i < mid) res.push_back(v1[i++]);
-        while (j < high) res.push_back(v1[j++]);
-
-        for (int k = 0; k < res.size(); ++k) {
-            v1[low + k] = res[k];
+        while(i<mid){
+            v1[k] = tmp[i];
+            i++;
+            k++;
+        }
+        while(j<high){
+            v1[k] = tmp[j];
+            j++;
+            k++;
         }
     }
 
@@ -58,7 +66,7 @@ public:
 };
 
 int main() {
-    vector<int> v = {3, 25, 7, 4, 4, 3,32,1,41,4,5,2};
+    vector<int> v = {3, 25, 7, 4, 4, 3,32,1,41,4,5,2,324,23,52,52,3};
     MS ms(v);
     ms.solve();
     ms.peek();
