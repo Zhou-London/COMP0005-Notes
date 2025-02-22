@@ -1,10 +1,19 @@
+//Feb 19
+
+//IO, Dynamic array, swap()
 #include <iostream>
 #include <vector>
 #include <algorithm>
+
 using namespace std;
+
 class qs{
 private:
+
+    //array
     vector<int> v1;
+
+    //Sort
     void quickSort(int low, int high){
         if(low < high){
             int pivotIndex = part(low, high);
@@ -12,6 +21,8 @@ private:
             quickSort(pivotIndex + 1, high);
         }
     }
+
+    //Partition
     int part(int low, int high){
         int pivot = v1[high];
         int i = low - 1;
@@ -20,16 +31,10 @@ private:
         return (i+1);
     }
 public:
-    qs(vector<int> v): v1(v) {}
-    void print(){
-        quickSort(0, v1.size() - 1);
-        for(int n: v1) cout << n << "  ";
-        cout<< endl;
-    }
+    qs(vector<int> v): v1(v) { quickSort(0, v1.size() - 1); }
+    void print(){ for(int n: v1) cout << n << endl; }
 };
 int main(){
-    vector<int> v = {7,65,6,45,342, 34, 92, 86, 9,78,93,254,386,27,349,12,33,65,7685,64,32,455,46};
-    qs q = qs(v);
-    q.print();
+    qs({7,65,6,45,342, 34, 92, 86, 9,78,93,254,386,27,349,12,33,65,7685,64,32,455,46}).print();
     return 0;
 }
